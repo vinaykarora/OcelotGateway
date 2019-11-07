@@ -7,6 +7,7 @@ using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using Ocelot.DependencyInjection;
 
 namespace Bucket.WebGetway
 {
@@ -28,6 +29,8 @@ namespace Bucket.WebGetway
                     .AddJsonFile("appsettings.json", true, true)
                     .AddJsonFile($"appsettings.{hostingContext.HostingEnvironment.EnvironmentName}.json", true, true)
                     .AddJsonFile("ocelot.json")
+                    //.AddJsonFile($"configuration.{hostingContext.HostingEnvironment.EnvironmentName}.json")
+                     //.AddOcelot("/foo/bar", hostingContext.HostingEnvironment)
                     .AddEnvironmentVariables();
             })
             .UseIIS()

@@ -4,39 +4,39 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Bucket.Configuration.WebAPI.Controllers
+namespace Bucket.Management.WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ValuesController : ControllerBase
+    public class ManagementsController : ControllerBase
     {
-        // GET api/values
+        // GET api/managements
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
-            return new string[] { "value1", "value2" };
+            return new string[] { "management1", "management2" };
         }
 
-        // GET api/values/5
+        // GET api/managements/5
         [HttpGet("{id}")]
         public ActionResult<string> Get(int id)
         {
-            return "value";
+            return "management";
         }
 
-        // POST api/values
+        // POST api/managements
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] string management)
         {
         }
 
-        // PUT api/values/5
+        // PUT api/managements/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void Put(int id, [FromBody] string management)
         {
         }
 
-        // DELETE api/values/5
+        // DELETE api/managements/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {

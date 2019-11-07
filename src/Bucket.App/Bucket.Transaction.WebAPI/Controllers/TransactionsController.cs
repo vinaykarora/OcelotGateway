@@ -8,38 +8,41 @@ namespace Bucket.Transaction.WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ValuesController : ControllerBase
+    public class TransactionsController : ControllerBase
     {
-        // GET api/values
+        // GET api/transaction
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
-            return new string[] { "value1", "value2" };
+            return new string[] { "transaction1", "transaction2" };
         }
 
-        // GET api/values/5
+        // GET api/transaction/5
         [HttpGet("{id}")]
         public ActionResult<string> Get(int id)
         {
-            return "value";
+            return "transaction";
         }
 
-        // POST api/values
+        // POST api/transaction
         [HttpPost]
         public void Post([FromBody] string value)
         {
+            
         }
 
-        // PUT api/values/5
+        // PUT api/transaction/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public ActionResult<string> Put(int id, [FromBody] string value)
         {
+            return value;
         }
 
-        // DELETE api/values/5
+        // DELETE api/transaction/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
+            return Accepted();
         }
     }
 }

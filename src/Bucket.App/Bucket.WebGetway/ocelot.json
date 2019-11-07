@@ -1,5 +1,81 @@
 ﻿{
-  "ReRoutes": [],
+  "ReRoutes": [
+    // Configurations
+    {
+      "DownstreamPathTemplate": "/api/limits",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5002
+        }
+      ],
+      "UpstreamPathTemplate": "/limits",
+      "UpstreamHttpMethod": [ "Get", "Post" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/limits/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5002
+        }
+      ],
+      "UpstreamPathTemplate": "/limits/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Put", "Delete" ]
+    },
+    // Managements
+    {
+      "DownstreamPathTemplate": "/api/managements",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5004
+        }
+      ],
+      "UpstreamPathTemplate": "/managements",
+      "UpstreamHttpMethod": [ "Get", "Post" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/managements/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5004
+        }
+      ],
+      "UpstreamPathTemplate": "/managements/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Put", "Delete" ]
+    },
+    // Transactions
+    {
+      "DownstreamPathTemplate": "/api/transactions",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5006
+        }
+      ],
+      "UpstreamPathTemplate": "/transactions",
+      "UpstreamHttpMethod": [ "Get", "Post" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/transactions/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5006
+        }
+      ],
+      "UpstreamPathTemplate": "/transactions/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Put", "Delete" ]
+    }
+  ],
   "GlobalConfiguration": {
     "BaseUrl": "http://localhost:5000"
   }
