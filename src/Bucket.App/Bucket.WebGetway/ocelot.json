@@ -84,7 +84,8 @@
         "Limits",
         "Managements"
       ],
-      "UpstreamPathTemplate": "/"
+      "UpstreamPathTemplate": "/",
+      "Aggregator": "FakeDefinedAggregator"
     }
   ],
   "GlobalConfiguration": {
