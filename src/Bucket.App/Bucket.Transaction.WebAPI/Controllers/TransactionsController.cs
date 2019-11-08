@@ -1,8 +1,7 @@
-﻿using System;
+﻿using Bucket.Transaction.WebAPI.Models;
+using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
 
 namespace Bucket.Transaction.WebAPI.Controllers
 {
@@ -10,25 +9,37 @@ namespace Bucket.Transaction.WebAPI.Controllers
     [ApiController]
     public class TransactionsController : ControllerBase
     {
-        // GET api/transaction
-        [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        List<TransactionModel> _transactions;
+        public TransactionsController()
         {
-            return new string[] { "transaction1", "transaction2" };
+            _transactions = new List<TransactionModel>()
+            {
+                new TransactionModel() { Name = "Transaction 1", Id = 1 },
+                new TransactionModel() { Name = "Transaction 2", Id = 2 },
+                new TransactionModel() { Name = "Transaction 3", Id = 3 },
+                new TransactionModel() { Name = "Transaction 4", Id = 4 }
+            };
         }
 
-        // GET api/transaction/5
-        [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        // GET api/transactions
+        [HttpGet]
+        public IActionResult Get()
         {
-            return "transaction";
+            return Ok(_transactions);
+        }
+
+        // GET api/transactions/5
+        [HttpGet("{id}")]
+        public IActionResult Get(int id)
+        {
+            return Ok(_transactions.Single(s => s.Id == id));
         }
 
         // POST api/transaction
         [HttpPost]
         public void Post([FromBody] string value)
         {
-            
+
         }
 
         // PUT api/transaction/5

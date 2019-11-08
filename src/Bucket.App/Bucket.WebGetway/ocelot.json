@@ -11,7 +11,8 @@
         }
       ],
       "UpstreamPathTemplate": "/limits",
-      "UpstreamHttpMethod": [ "Get", "Post" ]
+      "UpstreamHttpMethod": [ "Get" ],
+      "Key": "Limits"
     },
     {
       "DownstreamPathTemplate": "/api/limits/{everything}",
@@ -36,7 +37,8 @@
         }
       ],
       "UpstreamPathTemplate": "/managements",
-      "UpstreamHttpMethod": [ "Get", "Post" ]
+      "UpstreamHttpMethod": [ "Get"],
+      "Key": "Managements"
     },
     {
       "DownstreamPathTemplate": "/api/managements/{everything}",
@@ -74,6 +76,15 @@
       ],
       "UpstreamPathTemplate": "/transactions/{everything}",
       "UpstreamHttpMethod": [ "Get", "Put", "Delete" ]
+    }
+  ],
+  "Aggregates": [
+    {
+      "ReRouteKeys": [
+        "Limits",
+        "Managements"
+      ],
+      "UpstreamPathTemplate": "/"
     }
   ],
   "GlobalConfiguration": {

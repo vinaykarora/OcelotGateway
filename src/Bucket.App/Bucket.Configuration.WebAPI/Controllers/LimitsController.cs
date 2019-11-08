@@ -1,8 +1,7 @@
-﻿using System;
+﻿using Bucket.Configuration.WebAPI.Models;
+using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
 
 namespace Bucket.Configuration.WebAPI.Controllers
 {
@@ -10,18 +9,30 @@ namespace Bucket.Configuration.WebAPI.Controllers
     [ApiController]
     public class LimitsController : ControllerBase
     {
+        List<LimitModel> _limits;
+        public LimitsController()
+        {
+            _limits = new List<LimitModel>()
+            {
+                new LimitModel() { Name = "Limit 1", Id = 1 },
+                new LimitModel() { Name = "Limit 2", Id = 2 },
+                new LimitModel() { Name = "Limit 3", Id = 3 },
+                new LimitModel() { Name = "Limit 4", Id = 4 }
+            };
+        }
+
         // GET api/limits
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public IActionResult Get()
         {
-            return new string[] { "limit1", "limit2" };
+            return Ok(_limits);
         }
 
         // GET api/limits/5
         [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        public IActionResult Get(int id)
         {
-            return "limit";
+            return Ok(_limits.Single(s => s.Id == id));
         }
 
         // POST api/limits
